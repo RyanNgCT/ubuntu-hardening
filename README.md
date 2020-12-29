@@ -17,7 +17,7 @@ NP CSF SCS ☁️ Module Individual Assignment
 $ sudo apt install net-tools                                      # for ifconfig
 $ sudo apt install tasksel
 
-# SELECT "UBUNTU-DESKTOP", leave defaults, press [TAB] and then [ENTER] on "OK" to confirm.
+# SELECT "UBUNTU-DESKTOP" using [SPACEBAR], leave defaults, press [TAB] and then [ENTER] on "OK" to confirm.
 # wait for installation to complete
 
 $ sudo reboot                                             # login using credentials
