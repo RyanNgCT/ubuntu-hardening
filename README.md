@@ -14,12 +14,12 @@ NP CSF SCS ☁️ Module Individual Assignment
 ## Miscellanous 
 - [x] Ubuntu Desktop (and Screen Manager)
 ```
-$ sudo apt install net-tools # for ifconfig
+$ sudo apt install net-tools                                      # for ifconfig
 $ sudo apt install tasksel
 
 # SELECT "UBUNTU-DESKTOP", leave defaults, press [TAB] and then [ENTER] on "OK" to confirm.
 # wait for installation to complete
 
-$ sudo reboot
+$ sudo reboot                                             # login using credentials
 
 ```
