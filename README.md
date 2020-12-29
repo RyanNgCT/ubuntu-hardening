@@ -11,7 +11,7 @@ NP CSF SCS ☁️ Module Individual Assignment
 - [ ] Disk Encryption for Linux
 - [ ] Linux Firewall
 
-## Miscellanous 
+## Miscellaneous 
 - [x] Ubuntu Desktop (and Screen Manager)
 ```
 $ sudo apt install net-tools                                      # for ifconfig
@@ -23,3 +23,5 @@ $ sudo apt install tasksel
 $ sudo reboot                                             # login using credentials
 
 ```
+
+- [ ] LAMP/XAMPP Stack installation 🚧
