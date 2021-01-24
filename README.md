@@ -48,3 +48,28 @@ $ sudo ufw allow in "Apache Full"
 ```
 Testing: now you can try to access the web server by going to http://xxx.xxx.xxx.xxx which is your ip address (run `ifconfig`) or using `localhost` or `127.0.0.1` (loopback).
 
+2. MySQL
+```
+$ sudo apt install mysql-server
+$ sudo mysql_secure_installation
+```
+Press `Y` or `y` for all other options at prompt, key in a decent alphanumeric password (select `1` when prompted).
+
+Testing: 
+```
+$ sudo mysql
+mysql> SELECT user,authentication_string,plugin,host FROM mysql.user;
+```
+Modify the `root` password to something secure.
+```
+mysql> ALTER USER 'root'@'localhost' IDENTIFIED WITH mysql_native_password BY '<password>';
+mysql> FLUSH PRIVILEGES;
+
+# Rerun to display the changes
+mysql> SELECT user,authentication_string,plugin,host FROM mysql.user;
+mysql> exit
+$
+```
+
+
+
