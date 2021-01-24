@@ -50,7 +50,7 @@ Testing: now you can try to access the web server by going to http://xxx.xxx.xxx
 
 2. MySQL
 ```
-$ sudo apt install mysql-server
+$ sudo apt install mysql-server -y
 $ sudo mysql_secure_installation
 ```
 Press `Y` or `y` for all other options at prompt, key in a decent alphanumeric password (select `1` when prompted).
@@ -71,5 +71,11 @@ mysql> exit
 $
 ```
 
+3. PHP
+```
+$ sudo apt install php libapache2-mod-php php-mysql -y
+$ sudo nano /etc/apache2/mods-enabled/dir.conf
+# move index.php to the front (as shown below)
+```
 
 
