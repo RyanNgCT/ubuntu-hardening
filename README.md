@@ -4,12 +4,119 @@ NP CSF SCS ☁️ Module Individual Assignment
 ## Installation and Dependencies
 * Ubuntu Server 20.04.1 (20.04 LTS)
 * requirements.txt (contains all pre-requisite packages and/or dependencies)--Work In Progress 🚧
+* Slides link (to be updated)
 
 ## Secure Checklist
-- [ ] User / Account Management
-- [ ] SSH Keys for Authentication
-- [ ] Disk Encryption for Linux
-- [ ] Linux Firewall
+- [x] [LAMP Stack](https://www.linuxbabe.com/ubuntu/install-lamp-stack-ubuntu-20-04-server-desktop)
+
+**Part 1. Apache 2.x**
+
+Step 1: Install Apache2 Package and make boot-persistent
+```
+$ sudo apt update
+$ sudo apt upgrade
+$ sudo apt install -y apache2 apache2-utils
+$ sudo systemctl enable apache2                          # run on startup
+```
+Test 1: If Apache is running: If it shows no error message, press `q` to quit and move on to the next steps.
+
+```
+$ sudo systemctl status apache2
+```
+
+Step 2: Miscellanous steps to start service
+```
+$ sudo ufw allow http
+$ sudo chown www-data:www-data /var/www/html/ -R          # good idea to change to www-data instead of root
+$ sudo systemctl reload apache2
+```
+Test 2: now you can try to access the web server by going to http://xxx.xxx.xxx.xxx which is your ip address (run `ifconfig`) or using `localhost` or `127.0.0.1` (loopback).
+
+[comment]: <> (To insert image)
+
+
+**Part 2. MariaDB and MySQL Secure Installation**
+
+Step 1: Install MariaDB
+```
+$ sudo apt install mariadb-server mariadb-client
+$ sudo systemctl enable mariadb                          # run on startup
+```
+Test 1: If MariaDB is running: If it shows no error message, press `q` to quit and move on to the next steps.
+```
+$ sudo systemctl status mariadb                          
+```
+
+Step 2: MySQL Secure Installation
+```
+$ sudo mysql_secure_installation
+```
+Press `Y` or `y` for all other options at prompt, key in a decent alphanumeric password (select `1` when prompted for medium-strength password).
+
+Test 2: Verify MariaDB Installation
+```
+$ sudo mariadb -u root
+...
+[mariadb] > exit
+$ 
+```
+
+
+**3. PHP 7.x**
+
+Step 1: PHP package installation
+```
+$ sudo apt install php libapache2-mod-php php-mysql -y      # requires additional config I will not cover
+```
+OR
+```
+$ sudo apt install php7.4 libapache2-mod-php7.4 php7.4-mysql php-common php7.4-cli php7.4-common php7.4-json php7.4-opcache php7.4-readline
+$ sudo a2enmod php7.4
+$ sudo systemctl restart apache2
+```
+Test 1: Check PHP Installation"
+```
+$ sudo nano /var/www/html/info.php
+
+# in the nano editor, enter the following and save
+<?php phpinfo(); ?>
+```
+Test 1: Navigate to http://xxx.xxx.xxx.xxx/info.php which is your ip address or localhost/info.php and you should see a page like below:
+[comment]: <> (To insert image)
+
+Step 2: Remove default PHP and index.html pages
+```
+# make a html file called index.html somewhere
+$ sudo mv /<path>/<to>/<file>.index.html /var/www/html/index.html
+$ sudo rm /var/www/html/info.php
+```
+Test 2: You should no longer be able to see the default pages when you try to navigate to them.
+
+---
+
+- [x] SSH Keys for Authentication
+
+---
+
+- [x] Antimalware: ClamAV
+
+**Part 1. Installing ClamAV**
+```
+sudo apt install clamav clamav-daemon -y
+sudo systemctl stop clamav-freshclam
+sudo systemctl start clamav-daemon.service
+sudo freshclam                                                    #update AV defs
+sudo systemctl start clamav-freshclam.service
+
+```
+
+**Part 2. Install and Configure ClamTK (ClamAV GUI)**
+```
+sudo apt install clamtk -y
+```
+Configure according to preference using GUI
+
+- [x] Linux Firewall (ufw)
 
 ## Miscellaneous 
 - [x] Ubuntu Desktop (and Screen Manager)
@@ -22,7 +129,7 @@ $ sudo apt install tasksel
 # SELECT "UBUNTU-DESKTOP" using [SPACEBAR], leave defaults, press [TAB] and then [ENTER] on "OK" to confirm.
 # wait for installation to complete
 
-$ sudo reboot                                             # login using credentials
+$ sudo reboot                                                    # login using credentials
 
 ```
 - [x] Troubleshooting Server 20.04 Clipboard Issues
@@ -37,30 +144,7 @@ $ sudo reboot
 ```
 
 
-- [ ] LAMP/XAMPP Stack installation 🚧
-
-1. Apache 2
-```
-$ sudo apt update
-$ sudo apt install -y apache2 apache2-utils
-$ sudo ufw app info "Apache Full"
-$ sudo ufw allow in "Apache Full"
-```
-Testing: now you can try to access the web server by going to http://xxx.xxx.xxx.xxx which is your ip address (run `ifconfig`) or using `localhost` or `127.0.0.1` (loopback).
-
-2. MySQL
-```
-$ sudo apt install mysql-server -y
-$ sudo mysql_secure_installation
-```
-Press `Y` or `y` for all other options at prompt, key in a decent alphanumeric password (select `1` when prompted).
 
 
-3. PHP
-```
-$ sudo apt install php libapache2-mod-php php-mysql -y
-$ sudo nano /etc/apache2/mods-enabled/dir.conf
-# move index.php to the front (as shown below)
-```
 
 
