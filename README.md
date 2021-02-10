@@ -60,8 +60,6 @@ $ sudo mariadb -u root
 [mariadb] > exit
 $ 
 ```
-
-
 **3. PHP 7.x**
 
 Step 1: PHP package installation
@@ -92,9 +90,15 @@ $ sudo rm /var/www/html/info.php
 ```
 Test 2: You should no longer be able to see the default pages when you try to navigate to them.
 
+Installing Phpmyadmin is optional. See [here](https://www.linuxbabe.com/ubuntu/install-phpmyadmin-apache-lamp-ubuntu-20-04) for more.
+
 ---
 
 - [x] SSH Keys for Authentication
+```
+$ ssh-keygen -t rsa 4096 -C “ubuntu client”
+$ scp -p <port> <path> id@<ipaddr>:~/.ssh/authorized_keys
+```
 
 ---
 
@@ -102,21 +106,30 @@ Test 2: You should no longer be able to see the default pages when you try to na
 
 **Part 1. Installing ClamAV**
 ```
-sudo apt install clamav clamav-daemon -y
-sudo systemctl stop clamav-freshclam
-sudo systemctl start clamav-daemon.service
-sudo freshclam                                                    #update AV defs
-sudo systemctl start clamav-freshclam.service
-
+$ sudo apt install clamav clamav-daemon -y
+$ sudo systemctl stop clamav-freshclam
+$ sudo systemctl start clamav-daemon.service
+$ sudo freshclam                                                    #update AV defs
+$ sudo systemctl start clamav-freshclam.service
 ```
 
 **Part 2. Install and Configure ClamTK (ClamAV GUI)**
 ```
-sudo apt install clamtk -y
+$ sudo apt install clamtk -y
 ```
 Configure according to preference using GUI
 
+---
+
 - [x] Linux Firewall (ufw)
+```
+$ sudo ufw default deny incoming
+$ sudo ufw default allow outgoing
+$ sudo ufw allow <port>/tcp                           # make sure correct port
+$ sudo ufw allow http
+$ sudo ufw allow https
+$ sudo ufw enable
+```
 
 ## Miscellaneous 
 - [x] Ubuntu Desktop (and Screen Manager)
