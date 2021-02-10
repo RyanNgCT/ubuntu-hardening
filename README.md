@@ -74,15 +74,15 @@ $ sudo apt install php7.4 libapache2-mod-php7.4 php7.4-mysql php-common php7.4-c
 $ sudo a2enmod php7.4
 $ sudo systemctl restart apache2
 ```
-Test 1: Check PHP Installation"
+Test 1: Navigate to http://xxx.xxx.xxx.xxx/info.php which is your ip address or localhost/info.php and you should see a page like below:
+
+[comment]: <> (To insert image)
 ```
 $ sudo nano /var/www/html/info.php
 
 # in the nano editor, enter the following and save
 <?php phpinfo(); ?>
 ```
-Test 1: Navigate to http://xxx.xxx.xxx.xxx/info.php which is your ip address or localhost/info.php and you should see a page like below:
-[comment]: <> (To insert image)
 
 Step 2: Remove default PHP and index.html pages
 ```
