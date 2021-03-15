@@ -160,7 +160,7 @@ $ sudo reboot
 Edit the corresponding files as per the slides above to further harden the server. 
 
 Here are the files that are unique to my setup.
-* [Apache2 Config File](https://github.com/RyanNgCT/ubuntu-hardening/blob/main/dependencies/apache2.conf)
+* [Apache2 Config File](https://github.com/RyanNgCT/ubuntu-hardening/blob/main/dependencies/apache2.conf) (may have to rid the `^M`)
 * [index.html](https://github.com/RyanNgCT/ubuntu-hardening/blob/main/dependencies/index.html)
 * [dev.html](https://github.com/RyanNgCT/ubuntu-hardening/blob/main/dependencies/dev.html)
 
