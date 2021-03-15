@@ -3,7 +3,7 @@ NP CSF SCS ☁️ Module Individual Assignment
 
 ## Installation and Dependencies
 * [Ubuntu Server 20.04.1+ (20.04 LTS)](https://ubuntu.com/download/server), select Option 2. Can also choose to deploy on the Cloud--GCP, Linode etc.
-* [req.sh](https://github.com/RyanNgCT/ubuntu-hardening/blob/main/dependencies/req.sh) (contains all pre-requisite packages and/or dependencies): **WARNING**: this was not tested by the author and is a minimal and quick way to set up your environment, configuration is still required. This project is not actively maintained. However, please open an issue if need be.
+* [req.sh](https://github.com/RyanNgCT/ubuntu-hardening/blob/main/dependencies/req.sh) (contains all pre-requisite packages and/or dependencies): **WARNING**: this was not tested by the author and is a minimal and quick way to set up your environment, configuration is still required. This project is not actively maintained. However, please open an [issue](https://github.com/RyanNgCT/ubuntu-hardening/issues) if need be.
 * [Slides for server hardening](https://docs.google.com/presentation/d/1L1b1AIIjt6Fb_5auAaVlQ-g5eTmZ9nfo9hBRdok8h78/edit?usp=sharing).
 * GUI is optional and Ubuntu 18.04+ Client VM would be helpful to test `ssh` hardening.
 
@@ -159,7 +159,7 @@ $ sudo reboot
 ```
 ---
 
-Edit the corresponding files as per the slides above to further harden the server. 
+Edit the corresponding files as per the [slides above](##Installation-and-Dependencies) to further harden the server. 
 
 Here are the files that are unique to my setup.
 * [Apache2 Config File](https://github.com/RyanNgCT/ubuntu-hardening/blob/main/dependencies/apache2.conf) (may have to rid the `^M`)
