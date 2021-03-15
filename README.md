@@ -32,7 +32,7 @@ $ sudo systemctl reload apache2
 ```
 Test 2: now you can try to access the web server by going to http://xxx.xxx.xxx.xxx which is your ip address (run `ifconfig`) or using `localhost` or `127.0.0.1` (loopback).
 
-[comment]: <> (To insert image)
+![apache2](https://github.com/RyanNgCT/ubuntu-hardening/blob/main/images/apache2.png)
 
 
 **Part 2. MariaDB and MySQL Secure Installation**
@@ -74,7 +74,7 @@ $ sudo systemctl restart apache2
 ```
 Test 1: Navigate to http://xxx.xxx.xxx.xxx/info.php which is your ip address or localhost/info.php and you should see a page like below:
 
-[comment]: <> (To insert image)
+![php](https://github.com/RyanNgCT/ubuntu-hardening/blob/main/images/php.png)
 ```
 $ sudo nano /var/www/html/info.php
 
@@ -157,8 +157,25 @@ $ sudo reboot
 ```
 ---
 
-Edit the corresponding files as per the slides above to further harden the server.
+Edit the corresponding files as per the slides above to further harden the server. 
 
+Here are the files that are unique to my setup.
+* [Apache2 Config File](https://github.com/RyanNgCT/ubuntu-hardening/blob/main/dependencies/apache2.conf)
+* [index.html](https://github.com/RyanNgCT/ubuntu-hardening/blob/main/dependencies/index.html)
+* [dev.html](https://github.com/RyanNgCT/ubuntu-hardening/blob/main/dependencies/dev.html)
+
+
+
+
+## References
+* GUI: https://www.youtube.com/watch?v=mz3EFqNpLbQ
+* Securing the Server (General):
+   * https://christitus.com/secure-web-server/
+   * https://techguides.yt/guides/secure-linux-server/
+* Securing LAMP
+   * [Hackersploit playlist](https://www.youtube.com/watch?v=Ryu3SDPYNb8&list=PLBf0hzazHTGMG7fJvZoAAw-JE3WyMIOQv)
+* ClamAV
+   * https://www.addictedtotech.net/how-to-install-clamav-on-ubuntu-20-4-lts-linux/
 
 
 
