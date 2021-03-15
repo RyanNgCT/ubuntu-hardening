@@ -4,7 +4,7 @@ NP CSF SCS ☁️ Module Individual Assignment
 ## Installation and Dependencies
 * Ubuntu Server 20.04.1 (20.04 LTS)
 * requirements.txt (contains all pre-requisite packages and/or dependencies)--Work In Progress 🚧
-* Slides link (to be updated)
+* [Slides](https://docs.google.com/presentation/d/1L1b1AIIjt6Fb_5auAaVlQ-g5eTmZ9nfo9hBRdok8h78/edit?usp=sharing)
 
 ## Secure Checklist
 - [x] [LAMP Stack](https://www.linuxbabe.com/ubuntu/install-lamp-stack-ubuntu-20-04-server-desktop)
@@ -155,7 +155,9 @@ There was some problem with the clipboard during my installation of lamp stack w
 $ sudo apt-get install open-vm-tools-desktop
 $ sudo reboot
 ```
+---
 
+Edit the corresponding files as per the slides above to further harden the server.
 
 
 
