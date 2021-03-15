@@ -118,7 +118,7 @@ $ sudo systemctl start clamav-freshclam.service
 ```
 $ sudo apt install clamtk -y
 ```
-Configure according to preference using GUI
+Configure according to own preference using GUI.
 
 ---
 
@@ -131,6 +131,7 @@ $ sudo ufw allow http
 $ sudo ufw allow https
 $ sudo ufw enable
 ```
+In this exercise, I changed the `ssh` port to `727` from `22` (see the slides). Since it is a web server, we will allow `http`/`https` traffic for both incoming and outgoing connections.
 
 ## Miscellaneous 
 - [x] Ubuntu Desktop (and Screen Manager)
